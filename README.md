@@ -19,3 +19,16 @@ pip install pillow
 pip install numpy
 ```
 由于openCV的库有一些特殊（我这边直接用pip安装跑不起来），您可能要参考[这篇教程](https://blog.csdn.net/m0_73767377/article/details/130072986)
+## 第四步，处理视频
+将文件解压至D:\python_projects\badapple_on_CCaption目录下，如果不复制到此处，您可能需要修改代码中以下位置：
+
+|文件  |行数|
+|---|---|
+|main.py  |12,15,16|
+|srtprogress.py  |16,18,51,71|
+|text_to_srt.py  |46|
+
+下一步，在D:\python_projects\badapple_on_CCaption目录下新建done及text_output文件夹，这些分别用来存储分割后的图片和转成字符后的图片<br>
+首先，运行main.py，其作用是将一帧一帧的图片分割成64x64的小块，其生成的结果会保存在done文件夹下。<br>
+下一步，运行srtprogress.py，其作用是将小块转化成实心和空心的字符，其生成的结果会保存在text_output文件夹下<br>
+下一步，运行text_to_srt.py，其作用是将字符重新排列成srt的字幕文件，处理时间大概几秒到十几秒，完成后会在程序根目录下生成srt.srt文件<br>
