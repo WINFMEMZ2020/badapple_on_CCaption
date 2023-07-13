@@ -5,9 +5,6 @@ from colorama import Back,init
 
 init(autoreset=False)
 
-# command = 'D:\tools\ffmpeg-master-latest-win64-gpl-shared\bin\ffmpeg -i "C:\Users\Deng\OneDrive\my_python_projects\badapple_sources\\badapple.mp4" -vf "select=between(n\,0\,6573)*not(mod(n\,1))" -vsync 0 D:\output\%05d.jpg'
-# os.system(command)
-
 # 分割图片
 filenames = os.listdir(r'D:\\output\\')
 filenames.sort()
