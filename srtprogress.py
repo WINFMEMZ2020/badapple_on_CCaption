@@ -29,8 +29,8 @@ for a in os.listdir(r"D:\python_projects\badapple_on_CCaption\done"):
 		picture_count = picture_info_list[1]
 		im = Image.open(picture_path)
 		rgb_im = im.convert('RGB')
-		for i in range(64):
-			for j in range(64):
+		for i in range(48):
+			for j in range(48):
 				r, g, b = rgb_im.getpixel((i, j))
 				if r == 255 and g == 255 and b == 255:
 					point_white = point_white + 1
@@ -40,35 +40,40 @@ for a in os.listdir(r"D:\python_projects\badapple_on_CCaption\done"):
 					point_all = point_all + 1
 				else:
 					point_all = point_all + 1
+		print(picture_path)
 		if point_black / point_all > 0.4:  # BLACK
-			print("BLACK POINT,count = " + str(count))
-			if count == 7:
-				if line_count == 6:
-					print(out)
+			#print("BLACK POINT,count = " + str(count))
+			if count == 9:
+				if line_count == 8:
+					#print(out)
 					progress = progress + 1
 					line_count = 0
-					#save
-					filename = r"D:\python_projects\badapple_on_CCaption\text_output\\" + a + ".txt"
+					a_list = a.replace("."," ")
+					a_list = a_list.split()
+					filename_processed = a_list[0]
+					filename = r"D:\python_projects\badapple_on_CCaption\text_output\\" + str(int(filename_processed) - 1).zfill(5) + ".txt"
 					with open(filename,"wt",encoding="UTF-8") as file_object:
 						file_object.write(out)
+					#print(out)
 					out = ""
 				out = out + "\n" + "□"
 				line_count = line_count + 1
 				count = 0
-
 			else:
 				out = out + "□"
+				#print(out)
 				count = count + 1
 		else:
-			print("WHITE POINT!,count = " + str(count))
-			if count == 7:
-				if line_count == 6:
-					print(out)
-
+			#print("WHITE POINT!,count = " + str(count))
+			if count == 9:
+				if line_count == 8:
+					#print(out)
 					progress = progress + 1
 					line_count = 0
-					# save
-					filename = r"D:\python_projects\badapple_on_CCaption\text_output\\" + a + ".txt"
+					a_list = a.replace("."," ")
+					a_list = a_list.split()
+					filename_processed = a_list[0]
+					filename = r"D:\python_projects\badapple_on_CCaption\text_output\\" + str(int(filename_processed) - 1).zfill(5) + ".txt"
 					with open(filename, "w", encoding="UTF-8") as file_object:
 						file_object.write(out)
 					out = ""
@@ -76,6 +81,8 @@ for a in os.listdir(r"D:\python_projects\badapple_on_CCaption\done"):
 				out = out + "\n" + "■"
 				count = 0
 			else:
+				#print(out)
 				out = out + "■"
 				count = count + 1
+		#os.system("pause")
 

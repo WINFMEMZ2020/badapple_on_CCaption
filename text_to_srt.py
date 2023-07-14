@@ -1,4 +1,7 @@
-ms = ['000', '030', '060', '090', '120', '150', '180', '210', '240', '270', '300', '330', '360', '420', '450', '510', '540', '570', '600', '630', '690', '720', '750', '780', '840', '870', '900', '930', '960', '990']
+#ms = ['000', '030', '060', '090', '120', '150', '180', '210', '240', '270', '300', '330', '360', '420', '450', '510', '540', '570', '600', '630', '690', '720', '750', '780', '840', '870', '900', '930', '960', '990']
+ms = ['000','060', '120', '180',  '240','300', '360', '450', '540', '600','690',  '750', '840', '960', '990']
+#ms = ['000','120', '210', '330', '450', '510', '630', '780', '840', '990']
+
 import os
 os.system("chcp 65001")
 os.system("cls")
@@ -46,6 +49,7 @@ srt_number = 1
 open_path = r"D:\python_projects\badapple_on_CCaption\\" + "text_output" + r"\\"  # 拼接出处理文件夹的完整路径
 folder_content = os.listdir(open_path)
 srt = ""
+frame_counting = 1
 for txt in folder_content:
 	txt_path = open_path + "\\" +  txt
 	with open(txt_path,encoding = "UTF=8") as file_object:
@@ -58,8 +62,9 @@ for txt in folder_content:
 		now_minutes = target_time_dict["minutes"]
 		now_seconds = target_time_dict["seconds"]
 		now_mseconds = target_time_dict["mseconds"]
-		srt = srt + str(srt_number) + "\n" + time_to + "\n" + "fps:30.00\n" + txt_content + "\n\n"
+		srt = srt + str(srt_number) + "\n" + time_to + "\n" + "frame:" + str(frame_counting) + "\n"+ txt_content + "\n\n"
 		srt_number = srt_number + 1
+		frame_counting = frame_counting + 1
 
 
 with open("srt.srt","w",encoding = "UTF-8") as file_object:
