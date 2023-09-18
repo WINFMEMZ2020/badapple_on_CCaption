@@ -43,7 +43,7 @@ pip install numpy
 下一步，运行text_to_srt.py，其作用是将字符重新排列成srt的字幕文件，处理时间大概几秒到十几秒，完成后会在程序根目录下生成srt.srt文件<br>
 
 # 原理是什么？
-首先，ffmpeg将视频中的帧全部提取出来，main.py将ffmpeg提取的帧分割成10x8块图片，srtprogress.py处理图片，若是黑色区域占全部像素点的40%就判定为黑色像素，并转成实心和空心的方块保存在.txt文件中，最后text_to_srt.py将这些.txtwenj转换成.srt字幕文件，处理完成。
+首先，ffmpeg将视频中的帧全部提取出来，main.py将ffmpeg提取的帧分割成10x8块图片，srtprogress.py处理图片，若是黑色区域占全部像素点的40%就判定为黑色像素，并转成实心和空心的方块保存在.txt文件中，最后text_to_srt.py将这些.txt文件转换成.srt字幕文件，处理完成。
 
 # 发现bug了？
 这种东西虽然没什么好写issues的，但是你想要的话也欢迎你在issues中提出！
